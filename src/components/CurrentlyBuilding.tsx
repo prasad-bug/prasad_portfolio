@@ -1,81 +1,78 @@
-import React, { useEffect, useRef, useState } from "react";
-import '../assets/styles/CurrentlyBuilding.scss';
+import React from "react";
+import '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloud, faNetworkWired, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import '../assets/styles/Timeline.scss';
 
-// ─── EDIT THIS ARRAY to update what's shown ───────────────────────────────────
-interface BuildingItem {
-    emoji: string;
-    label: string;
-    description: string;
+// ─── EDIT THIS ARRAY to add, remove, or update entries ───────────────────────
+interface BuildingEntry {
+  icon: typeof faCloud;        // any FontAwesome solid icon
+  title: string;               // bold card heading
+  subtitle: string;            // smaller tag line (tech stack / category)
+  description: string;         // body text
+  date: string;                // date label shown beside the node
 }
 
-const currentlyBuilding: BuildingItem[] = [
-    {
-        emoji: "⚙️",
-        label: "Kubernetes & DevOps",
-        description: "Deepening Kubernetes orchestration patterns, Helm charts, and GitOps deployment workflows.",
-    },
-    {
-        emoji: "🔗",
-        label: "Distributed Systems Design",
-        description: "Exploring consensus algorithms, event-driven architectures, and fault-tolerant messaging systems.",
-    },
-    {
-        emoji: "🤖",
-        label: "LLM-Powered Tooling",
-        description: "Building developer tools that integrate large language models into real engineering workflows.",
-    },
+const currentlyBuilding: BuildingEntry[] = [
+  {
+    icon: faCloud,
+    title: "Kubernetes & DevOps Practices",
+    subtitle: "Docker • Kubernetes • Helm • GitOps",
+    description:
+      "Deepening hands-on knowledge of Kubernetes orchestration patterns, Helm chart authoring, and GitOps workflows using ArgoCD. Focused on production-grade cluster reliability, rolling deployments, and infrastructure-as-code practices.",
+    date: "2026 — Present",
+  },
+  {
+    icon: faNetworkWired,
+    title: "Distributed Systems Design",
+    subtitle: "Consensus • Event-Driven • CAP Theorem",
+    description:
+      "Systematically studying consensus algorithms (Raft, Paxos), event-driven architectures, partition tolerance trade-offs, and fault-tolerant messaging patterns. Applying theory through simulations and benchmarking projects.",
+    date: "2026 — Present",
+  },
+  {
+    icon: faTerminal,
+    title: "Systems & Low-Level Programming",
+    subtitle: "Linux Internals • C • Networking",
+    description:
+      "Exploring Linux internals, kernel concepts, socket programming, and low-level systems topics to build stronger foundations in how modern cloud and distributed infrastructure actually works under the hood.",
+    date: "2026 — Present",
+  },
 ];
-// ──────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Shared card style — same white card look as Timeline.tsx
+const CARD_STYLE    = { background: 'white', color: 'rgb(39, 40, 34)' };
+const ARROW_STYLE   = { borderRight: '7px solid white' };
+const ICON_STYLE    = { background: '#7C3AED', color: 'white' };
 
 function CurrentlyBuilding() {
-    const [visible, setVisible] = useState(false);
-    const sectionRef = useRef<HTMLDivElement>(null);
-
-    // Trigger entrance animation once the section scrolls into view
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.15 }
-        );
-        if (sectionRef.current) observer.observe(sectionRef.current);
-        return () => observer.disconnect();
-    }, []);
-
-    return (
-        <div className="cb-container" ref={sectionRef} id="currently-building">
-            <div className="cb-inner">
-                <div className="cb-header">
-                    <span className="cb-live-dot" aria-hidden="true" />
-                    <h2 className="cb-title">Currently Building</h2>
-                </div>
-                <p className="cb-subtitle">
-                    What I'm actively exploring, learning, and shipping right now.
-                </p>
-                <div className="cb-grid">
-                    {currentlyBuilding.map((item, i) => (
-                        <div
-                            key={item.label}
-                            className={`cb-card ${visible ? 'cb-card--visible' : ''}`}
-                            style={{ transitionDelay: `${i * 100}ms` }}
-                        >
-                            <span className="cb-card-emoji" aria-hidden="true">
-                                {item.emoji}
-                            </span>
-                            <div className="cb-card-body">
-                                <h3 className="cb-card-label">{item.label}</h3>
-                                <p className="cb-card-desc">{item.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div id="currently-building">
+      <div className="items-container">
+        <h1>Currently Building</h1>
+        <VerticalTimeline>
+          {currentlyBuilding.map((entry) => (
+            <VerticalTimelineElement
+              key={entry.title}
+              className="vertical-timeline-element--work"
+              contentStyle={CARD_STYLE}
+              contentArrowStyle={ARROW_STYLE}
+              date={entry.date}
+              iconStyle={ICON_STYLE}
+              icon={<FontAwesomeIcon icon={entry.icon} />}
+            >
+              <h3 className="vertical-timeline-element-title">{entry.title}</h3>
+              <h4 className="vertical-timeline-element-subtitle">{entry.subtitle}</h4>
+              <p>{entry.description}</p>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </div>
+    </div>
+  );
 }
 
 export default CurrentlyBuilding;
