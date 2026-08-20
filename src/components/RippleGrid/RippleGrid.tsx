@@ -38,7 +38,8 @@ const RippleGrid: React.FC<Props> = ({
   const uniformsRef = useRef<any>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     const hexToRgb = (hex: string): [number, number, number] => {
       const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -56,7 +57,7 @@ const RippleGrid: React.FC<Props> = ({
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.width = '100%';
     gl.canvas.style.height = '100%';
-    containerRef.current.appendChild(gl.canvas);
+    container.appendChild(gl.canvas);
 
     const vert = `
 attribute vec2 position;
@@ -185,14 +186,14 @@ void main() {
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = () => {
-      const { clientWidth: w, clientHeight: h } = containerRef.current!;
+      const { clientWidth: w, clientHeight: h } = container!;
       renderer.setSize(w, h);
       uniforms.iResolution.value = [w, h];
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!mouseInteraction || !containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
+      if (!mouseInteraction || !container) return;
+      const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1.0 - (e.clientY - rect.top) / rect.height;
       targetMouseRef.current = { x, y };
@@ -210,9 +211,9 @@ void main() {
 
     window.addEventListener('resize', resize);
     if (mouseInteraction) {
-      containerRef.current.addEventListener('mousemove', handleMouseMove);
-      containerRef.current.addEventListener('mouseenter', handleMouseEnter);
-      containerRef.current.addEventListener('mouseleave', handleMouseLeave);
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseenter', handleMouseEnter);
+      container.addEventListener('mouseleave', handleMouseLeave);
     }
     resize();
 
@@ -239,14 +240,15 @@ void main() {
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
-      if (mouseInteraction && containerRef.current) {
-        containerRef.current.removeEventListener('mousemove', handleMouseMove);
-        containerRef.current.removeEventListener('mouseenter', handleMouseEnter);
-        containerRef.current.removeEventListener('mouseleave', handleMouseLeave);
+      if (mouseInteraction && container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseenter', handleMouseEnter);
+        container.removeEventListener('mouseleave', handleMouseLeave);
       }
       renderer.gl.getExtension('WEBGL_lose_context')?.loseContext();
-      containerRef.current?.removeChild(gl.canvas);
+      container?.removeChild(gl.canvas);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
