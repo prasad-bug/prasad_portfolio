@@ -28,7 +28,7 @@ function Main() {
           />
         </div>
         <div className="image-wrapper">
-          <img src={avatarPrasad} alt="Prasad Ganesh Bhad" />
+          <img src={avatarPrasad} alt="Prasad Ganesh Bhad" loading="eager" fetchPriority="high" />
         </div>
         <div className="content">
           <div className="social_icons">

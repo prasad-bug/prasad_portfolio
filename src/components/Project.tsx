@@ -83,6 +83,8 @@ function Project() {
                                 className="zoom"
                                 alt={`${proj.title} thumbnail`}
                                 width="100%"
+                                loading="lazy"
+                                decoding="async"
                             />
                             <h2>{proj.title}</h2>
                             <p>{proj.blurb}</p>
