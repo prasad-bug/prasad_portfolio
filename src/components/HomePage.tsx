@@ -4,6 +4,7 @@ import Expertise from "./Expertise";
 import CurrentlyBuilding from "./CurrentlyBuilding";
 import Timeline from "./Timeline";
 import Project from "./Project";
+import GitHubGraph from "./GitHubGraph";
 import Contact from "./Contact";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
@@ -41,6 +42,7 @@ function HomePage() {
               <CurrentlyBuilding/>
               <Timeline/>
               <Project/>
+              <GitHubGraph/>
               <Contact/>
           </FadeIn>
           <Footer />

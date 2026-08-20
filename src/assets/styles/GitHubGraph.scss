@@ -1,0 +1,142 @@
+/* ===== Section wrapper ===== */
+.gh-section {
+    padding: 4% 10% 5%;
+}
+
+.gh-inner {
+    max-width: 960px;
+}
+
+/* ===== Header ===== */
+.gh-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.gh-icon {
+    width: 26px;
+    height: 26px;
+    color: #a78bfa;
+    flex-shrink: 0;
+}
+
+.gh-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    flex: 1;
+}
+
+.light-mode .gh-title {
+    color: #0d1116;
+}
+
+.gh-profile-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #a78bfa !important;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    background: rgba(124, 58, 237, 0.1);
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.gh-profile-link:hover {
+    background: rgba(124, 58, 237, 0.2);
+    border-color: rgba(124, 58, 237, 0.6);
+    color: #a78bfa !important;
+}
+
+/* ===== Card grid ===== */
+.gh-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ===== Base card ===== */
+.gh-card {
+    border-radius: 14px;
+    border: 1px solid rgba(124, 58, 237, 0.22);
+    background: rgba(124, 58, 237, 0.06);
+    padding: 24px 28px;
+    transition: border-color 0.2s, background 0.2s;
+    overflow: hidden;
+}
+
+.gh-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.light-mode .gh-card {
+    background: rgba(124, 58, 237, 0.04);
+    border-color: rgba(124, 58, 237, 0.18);
+}
+
+.light-mode .gh-card:hover {
+    background: rgba(124, 58, 237, 0.09);
+    border-color: rgba(124, 58, 237, 0.36);
+}
+
+/* ===== Card label ===== */
+.gh-card-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #a78bfa;
+    margin: 0 0 16px 0;
+}
+
+/* ===== Contribution chart images ===== */
+.gh-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* Show/hide dark vs light version via ancestor class */
+.gh-chart--dark  { display: block; }
+.gh-chart--light { display: none;  }
+
+.light-mode .gh-chart--dark  { display: none;  }
+.light-mode .gh-chart--light { display: block; filter: invert(0); }
+
+/* ===== Stats card images ===== */
+.gh-stats {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+}
+
+.gh-stats--dark  { display: block; }
+.gh-stats--light { display: none;  }
+
+.light-mode .gh-stats--dark  { display: none;  }
+.light-mode .gh-stats--light { display: block; }
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
+    .gh-section {
+        padding: 6% 5% 7%;
+    }
+
+    .gh-card {
+        padding: 18px 16px;
+    }
+
+    .gh-title {
+        font-size: 1.5rem;
+    }
+}
