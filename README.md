@@ -1,86 +1,96 @@
-# Developer Portfolio Template 🚀
+# Prasad Ganesh Bhad — Developer Portfolio 🚀
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Node.js](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+Welcome to my personal portfolio repository! I am a **Full Stack Engineer** and **Aspiring Cloud Engineer** focused on building secure, scalable distributed applications, cloud-native deployments, and interactive user experiences.
 
-## What is this?
+This repository hosts my responsive React + TypeScript portfolio, featuring custom interactive backgrounds, a detail-driven case-study engine, and real-time integration with GitHub metrics.
 
-This simple portfolio template is designed to showcase your past projects, career history, skill sets, and more.
+🔗 **Live Deployment**: [https://prasad-bug.github.io/react-portfolio-template](https://prasad-bug.github.io/react-portfolio-template)
 
-View the [Demo](https://yujisatojr.github.io/react-portfolio-template/).
+---
 
-**This template is free to use, and no attribution is required.** You can fork or download this repository to customize it for your own use. Please don't forget to leave a ⭐ if you like this portfolio!
+## 📸 Portfolio Preview
 
-![screenshot](./src/assets/images/screenshot.png)
+![Portfolio Screenshot](./src/assets/images/screenshot.png)
 
-## Features
+---
 
-✅ Open source (free to use, no attribution required)  
-✅ Responsive design & mobile-friendly  
-✅ Supports both dark and light modes  
-✅ Highly customizable multi-component layout  
-✅ Built with modern technologies (React, TypeScript, JavaScript, and SCSS)  
+## 🛠️ Tech Stack Highlights
 
-## Quick Setup
+*   **Frontend**: React, TypeScript, JavaScript, HTML5, CSS3, SASS / SCSS
+*   **Backend & Networking**: Python, Node.js, Express.js, Flask, P2P Sockets
+*   **DevOps & Infrastructure**: Docker, Kubernetes, Jenkins CI/CD, AWS (EC2, S3), Linux, Git
+*   **Data Science & UI**: Streamlit, Jupyter Notebooks, Pandas
 
-1. Ensure you have [Node.js](https://nodejs.org/) installed. Check your installation by running:
+---
 
+## 💻 Featured Projects
+
+### 1. [EarthCore](https://github.com/prasad-bug/earthcore)
+A full-stack, cloud-native application platform built to demonstrate enterprise-grade DevOps workflows and microservices orchestration.
+*   **Core Concepts**: Containerized microservices, local orchestration, automated CI/CD pipelines, cluster hosting.
+*   **Tech Stack**: Docker, Kubernetes (k8s manifests), Jenkins CI/CD, Docker Compose.
+*   **How it Works**: Separates frontend and backend into decoupled services. The automated Jenkins pipeline triggers tests and builds on push, outputting production images deployed to a Kubernetes cluster for scale.
+
+### 2. [ChatLink](https://github.com/prasad-bug/chatlink-p2p)
+A decentralized, peer-to-peer (P2P) secure messenger built from scratch to guarantee end-to-end encryption and metadata privacy.
+*   **Core Concepts**: Kademlia-style Distributed Hash Table (DHT) for peer lookup, end-to-end encryption, vector clocks.
+*   **Tech Stack**: Python, Cryptography, Socket Programming, DHT.
+*   **How it Works**: Peers discover and establish direct socket connections via a DHT without relying on a central server. Messages are secured using X3DH key agreement and the Double Ratchet encryption algorithm for forward secrecy.
+
+### 3. [Discord-Scale Sharding Simulation](https://github.com/prasad-bug/Discord_Sharding)
+A distributed systems project focused on benchmarking database sharding and data partitioning strategies under high concurrency.
+*   **Core Concepts**: Horizontal scaling, consistent hashing, workload benchmarking, load distribution.
+*   **Tech Stack**: Distributed Systems, Sharding Algorithms, Python, Benchmarking.
+*   **How it Works**: Simulates high-concurrency traffic (resembling Discord chat channels) to measure read/write latency, hot-spot generation, and the impact of range-based vs. hash-based database sharding.
+
+### 4. [LogiFly Smart Drone Analytics](https://github.com/prasad-bug/LogiFly-Drone-Analytics)
+A data science case study and interactive dashboard analyzing the business ROI and operations telemetry of autonomous drone logistics.
+*   **Core Concepts**: Telemetry ingestion, ROI modeling, feature engineering, interactive data visualization.
+*   **Tech Stack**: Streamlit, Jupyter Notebooks, Python, Pandas.
+*   **How it Works**: Ingests synthetic operations logs and applies financial modeling algorithms to calculate payback periods, drone battery efficiency, and operational bottlenecks. Outputs findings through an interactive Streamlit UI.
+
+---
+
+## ⚡ Quick Setup
+
+To run this portfolio website locally:
+
+1.  **Clone the repository**:
     ```bash
-    node -v
+    git clone https://github.com/prasad-bug/prasad_portfolio.git
+    cd prasad_portfolio
     ```
 
-2. In the project directory, install dependencies:
-
+2.  **Install dependencies**:
     ```bash
     npm install
     ```
 
-3. Start the development server:
+3.  **Configure environment variables**:
+    Create a `.env` file in the root directory:
+    ```env
+    REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+    REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+    REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+    ```
 
+4.  **Start the local development server**:
     ```bash
     npm start
     ```
+    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-4. Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
+---
 
-5. Customize the template by navigating to the `/src/components` directory. Modify texts, pictures, and other information as needed.
+## 🚀 Build & Deployment
 
-The page will reload if you make edits, and you will see any lint errors in the console.
-
-If you are interested in creating a mockup image like the ones from the personal projects section, I recommend [Genmoo](https://gemoo.com/tools/browser-mockup-generator/). This website lets you generate sleek looking browser mockups for free.
-
-## Deployment
-
-You can choose your preferred service (e.g., [Netlify](https://www.netlify.com/), [Render](https://render.com/), [Heroku](https://www.heroku.com/)) for deployment. One of the easiest ways to host this portfolio is using GitHub Pages. Follow the instructions below for a production deploy.
-
-1. **Set Up GitHub Repository**
-
-    Create a new repository on GitHub for your portfolio app.
-
-2. **Configure `package.json`**
-
-    Edit the following properties in your `package.json` file:
-
-    ```json
-    {
-        "homepage": "https://yourusername.github.io/your-repo-name",
-        "scripts": {
-            "predeploy": "npm run build",
-            "deploy": "gh-pages -d build",
-            ...
-        }
-    }
+*   **Production Build**:
+    ```bash
+    npm run build
     ```
+    This compiles and optimizes the project into static assets in the `build/` folder using code splitting and lazy loading.
 
-    Replace `yourusername` with your GitHub username and `your-repo-name` with the name of your GitHub repository.
-
-3. **Deploy to GitHub Pages**
-
-    Run the following command to deploy your app:
-
+*   **Deploy to GitHub Pages**:
     ```bash
     npm run deploy
     ```
-
-4. **Access Your Deployed App**
-
-    After successfully deploying, you can access your app at `https://yourusername.github.io/your-repo-name`.
