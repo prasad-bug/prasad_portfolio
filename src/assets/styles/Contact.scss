@@ -7,17 +7,6 @@
 .contact-form {
   padding-top: 20px;
 
-  button {
-    float: right;
-    background-color: white;
-    color: #050f0b;
-  }
-
-  button:hover {
-    background-color: #5000ca;
-    color: white;
-  }
-
   fieldset {
     background-color: white;
   }
@@ -45,4 +34,72 @@ form {
 .body-form {
   width: 100% !important;
   margin-bottom: 15px !important;
+}
+
+/* ── Submit button ── */
+.contact-submit-btn {
+  float: right;
+  background-color: white !important;
+  color: #050f0b !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  transition: background-color 0.2s, color 0.2s !important;
+
+  &:hover:not(:disabled) {
+    background-color: #5000ca !important;
+    color: white !important;
+  }
+
+  &:disabled {
+    opacity: 0.75 !important;
+  }
+}
+
+.contact-submit-btn--success {
+  background-color: #16a34a !important;
+  color: white !important;
+}
+
+.contact-submit-btn--error {
+  background-color: #dc2626 !important;
+  color: white !important;
+}
+
+/* ── Status banners ── */
+.contact-status {
+  clear: both;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-status--success {
+  background-color: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(22, 163, 74, 0.35);
+  color: #4ade80;
+}
+
+.contact-status--error {
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #f87171;
+}
+
+/* Light-mode status colours */
+.light-mode .contact-status--success {
+  color: #15803d;
+  background-color: rgba(22, 163, 74, 0.08);
+}
+
+.light-mode .contact-status--error {
+  color: #b91c1c;
+  background-color: rgba(220, 38, 38, 0.07);
+}
+
+@media (max-width: 600px) {
+  .form-flex {
+    flex-direction: column;
+  }
 }
