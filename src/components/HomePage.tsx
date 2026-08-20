@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Main from "./Main";
 import Expertise from "./Expertise";
+import CurrentlyBuilding from "./CurrentlyBuilding";
 import Timeline from "./Timeline";
 import Project from "./Project";
 import Contact from "./Contact";
@@ -37,6 +38,7 @@ function HomePage() {
           <FadeIn transitionDuration={700}>
               <Main/>
               <Expertise/>
+              <CurrentlyBuilding/>
               <Timeline/>
               <Project/>
               <Contact/>
