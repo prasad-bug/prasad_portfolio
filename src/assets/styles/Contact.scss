@@ -6,17 +6,79 @@
 
 .contact-form {
   padding-top: 20px;
-
-  fieldset {
-    background-color: white;
-  }
 }
 
-label {
-  font-size: 1.2rem;
-  font-family: 'DomaineDispNar-Medium', sans-serif;
+/* ── Scope the custom label style to ONLY the contact wrapper,
+      and DO NOT override font-size so MUI's float transform is unaffected ── */
+.contact_wrapper .MuiInputLabel-root {
+  font-family: 'Lato', sans-serif;
 }
 
+/* ── White input background so the notch cutout reads correctly ──
+      Applied to the root wrapper, NOT the fieldset border element    ── */
+.contact_wrapper .MuiOutlinedInput-root {
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+/* Keep white on hover */
+.contact_wrapper .MuiOutlinedInput-root:hover {
+  background-color: #ffffff;
+}
+
+/* Keep white when focused */
+.contact_wrapper .MuiOutlinedInput-root.Mui-focused {
+  background-color: #ffffff;
+}
+
+/* Slightly muted when disabled */
+.contact_wrapper .MuiOutlinedInput-root.Mui-disabled {
+  background-color: #f5f5f5;
+}
+
+/* Input text colour — always dark since the bg is white */
+.contact_wrapper .MuiOutlinedInput-input {
+  color: #0d1116;
+}
+
+.contact_wrapper .MuiOutlinedInput-input::placeholder {
+  color: rgba(13, 17, 22, 0.45);
+  opacity: 1;
+}
+
+/* Unfocused label colour */
+.contact_wrapper .MuiInputLabel-root {
+  color: rgba(13, 17, 22, 0.6);
+}
+
+/* Focused label colour — purple accent */
+.contact_wrapper .MuiInputLabel-root.Mui-focused {
+  color: #7c3aed;
+}
+
+/* Error label colour */
+.contact_wrapper .MuiInputLabel-root.Mui-error {
+  color: #d32f2f;
+}
+
+/* Border colour defaults */
+.contact_wrapper .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(13, 17, 22, 0.3);
+}
+
+/* Hover border */
+.contact_wrapper .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(13, 17, 22, 0.65);
+}
+
+/* Focused border — purple */
+.contact_wrapper .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #7c3aed;
+}
+
+/* Light-mode: visually identical (white inputs already match) — no extra rules needed */
+
+/* ── Layout helpers ── */
 .form-flex {
   display: flex;
   gap: 15px;
